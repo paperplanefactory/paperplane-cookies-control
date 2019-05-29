@@ -1,0 +1,794 @@
+{
+    "key": "group_5c9a313521c0c",
+    "title": "Gestione Cookie GDPR",
+    "fields": [
+        {
+            "key": "field_5c9b4141b898b",
+            "label": "Gestione comportamento",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5ca4afbabd5bb",
+            "label": "Mostrare il banner dei cookie?",
+            "name": "mostra_banner_cookie",
+            "type": "true_false",
+            "instructions": "Scegli se mostrare o meno il banner.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sì",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_5c9a501c98569",
+            "label": "Cookie version",
+            "name": "cookie_version",
+            "type": "number",
+            "instructions": "Cambiare per forzare la generazione di un nuovo cookie. Utile nel caso in cui siano stati modificati i codici di tracciamento.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": 1,
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5c9a31353e21d",
+            "label": "Scadenza cookie GDPR",
+            "name": "scadenza_cookie_gdpr",
+            "type": "number",
+            "instructions": "Scegliere dopo quanto il banner dei cookie deve essere mostrato nuovamente. Indicare il valore in ore.<br \/>\r\nesempio er un mese: 24x31 = 744",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5cab5eb4fd007",
+            "label": "Forzare l'accettazione dei cookie cliccando in qualsiasi punto della pagina?",
+            "name": "click_to_accept",
+            "type": "select",
+            "instructions": "Ogni interazione dell'utente comporterà l'accettazione dei cookie.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yes": "Sì",
+                "no": "No"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5c9a67f2be734",
+            "label": "Forzare il reload della pagina all'accettazione o rifiuto?",
+            "name": "forzare_il_reload",
+            "type": "select",
+            "instructions": "Forzando il reload verranno tracciati i dati dal momento della scelta del consenso. In caso contrario il tracciamento inizierà dalla visita successiva.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yes": "Sì",
+                "no": "No"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5c9a696e0ea83",
+            "label": "Forzare l'accettazione allo scroll?",
+            "name": "forzare_accettazione_scroll",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yes": "Sì",
+                "no": "No"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5c9a69c10ea84",
+            "label": "Dopo quanti pixel di scroll attivare l'accettazione?",
+            "name": "pixel_scroll",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c9a696e0ea83",
+                        "operator": "==",
+                        "value": "yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 100,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5c9b415db898c",
+            "label": "Gestione codici di tracciamento e contenuti da bloccare",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5c9b97bb51f47",
+            "label": "Informazioni sugli script caricati in pagina",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Nel caso in cui vengano utilizzati script in pagina es. AdSense sostituire l'attributo src con gdpr-src<br \/>\r\nDa:<br \/>\r\nsrc=\"\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js\"<br \/>\r\nA:<br \/>\r\ngdpr-src=\"\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js\"<br \/>\r\n<strong>Questa modifica non è da applicare alle due voci sotto \"Non GDPR Tracking codes\" e GDPR Tracking codes.<\/strong>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5c9a31353e25b",
+            "label": "Non GDPR Tracking codes (head)",
+            "name": "non_gdpr_tracking_codes_head",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che non richiedono accettazione.<br \/>\r\nPer rendere Analytics GDPR compliant verificare che il codice abbia questa riga:<br \/>\r\ngtag('config', 'UA-XXXXXXX-X', { 'anonymize_ip': true });<br \/>\r\nE verificare che nelle \"Impostazioni di condivisione dati\" di Analytics non sia marcato nessun checkbox.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione HEAD del documento.<br \/>\r\nPer un codice più compatto fare riferimento a https:\/\/minimalanalytics.com\/",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5ca22d9dc1bd2",
+            "label": "Non GDPR Tracking codes (body)",
+            "name": "non_gdpr_tracking_codes_body",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che non richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione BODY del documento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5c9a31353e296",
+            "label": "GDPR Tracking codes (head)",
+            "name": "gdpr_tracking_codes_head",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione HEAD del documento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5ca22f3fc1bd3",
+            "label": "GDPR Tracking codes (body)",
+            "name": "gdpr_tracking_codes_body",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione BODY del documento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5c9b41016af3e",
+            "label": "Testi",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5c9a51c191972",
+            "label": "Messaggio da mostrare per gli embed bloccati.",
+            "name": "embedded_content_message",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Questo contenuto è stato bloccato in base alle impostazioni sulla privacy. Per visualizzare questo contenuto devi attivare l'uso dei cookie cliccando qui.",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5c9a5bb333352",
+            "label": "Messaggio nel banner di avviso",
+            "name": "banner_message",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_5c9a5c8530d11",
+            "label": "Testo per il pulsante di accettazione",
+            "name": "banner_accept_text",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Accetto",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ca4a80e280a4",
+            "label": "Mostrare il pulsante di rifiuto dei cookie?",
+            "name": "mostra_pulsante_rifiuto",
+            "type": "true_false",
+            "instructions": "Se non utilizzi cookie di profilazione puoi scegliere di non far comparire il pulsante.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sì",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_5c9a5ca230d12",
+            "label": "Testo per il pulsante di Rifiuto",
+            "name": "banner_deny_text",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Rifiuto",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5c9a5d81a03b6",
+            "label": "Testo per il pulsante Maggiori informazioni",
+            "name": "more_info_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Maggiori informazioni",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5c9a5dc467215",
+            "label": "URL pagina Cookie Policy o Privacy Policy",
+            "name": "url_cookie_policy",
+            "type": "page_link",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
+        },
+        {
+            "key": "field_5c9a5e44b4552",
+            "label": "Target pagina Cookie Policy o Privacy Policy",
+            "name": "url_cookie_policy_target",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "_self": "Stessa finestra",
+                "_blank": "Nuova finestra"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5c9b40b6b1915",
+            "label": "Testo link per mostrare ancora il banner e modificare le impostazioni.",
+            "name": "show_options_again",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Mostra e modifica opzioni privacy.",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ca24364563af",
+            "label": "Istruzioni per inserire il link per mostrare ancora il banner e modificare le impostazioni",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Inserire questa stringa nel tema (ad esempio nel footer):<br \/>\r\n<?php if ( function_exists( 'show_again_banner' ) ) { show_again_banner(); } ?> <br \/>\r\nOppure utilizzare questo shortcode: [coookies-showagain]",
+            "new_lines": "wpautop",
+            "esc_html": 1
+        },
+        {
+            "key": "field_5c9b4204827ee",
+            "label": "Testo di promemoria per cookie accettati",
+            "name": "promemoria_cookie_accettati",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Hai scelto di utilizzare i cookie di terze parti, grazie per la fiducia. Puoi modificare la tua scelta secondo queste opzioni:",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5c9b4224827ef",
+            "label": "Testo di promemoria per cookie rifiutati",
+            "name": "promemoria_cookie_rifiutati",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Hai scelto di non utilizzare i cookie di terze parti. Puoi modificare la tua scelta secondo queste opzioni:",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5cb9cec2af45a",
+            "label": "Aspetto e CSS",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5ca5bc5a41b5c",
+            "label": "Usare i CSS preimpostati?",
+            "name": "use_own_css",
+            "type": "true_false",
+            "instructions": "Scegliendo \"NO\" ti verranno mostrati i selettori CSS da utilizzare per la personalizzazione.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sì",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_5ca4afe6bd5bc",
+            "label": "Gestione aspetto banner",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ca5bc5a41b5c",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Se vuoi personalizzare i CSS puoi utilizzare questi selettorei direttamente nel foglio di stile del tema:\r\n\r\n#paperplane-cookie-notice {\r\n\tposition: fixed;\r\n\tz-index: 9999;\r\n\tdisplay: block;\r\n\t\/\/visibility: hidden;\r\n\tdisplay: none;\r\n\twidth: calc(100% - 26px);\r\n\tbottom: 10px;\r\n\tleft: 10px;\r\n\tfont-family: $font-main !important;\r\n  font-weight:$font-weight-1 !important;\r\n  font-size: $cta1-size-smartphone !important;\r\n  line-height: $cta1-lineheight-smartphone !important;\r\n\tborder: $color-4 solid 3px !important;\r\n\tbackground-color: $color-1 !important;\r\n\tcolor: $color-6 !important;\r\n\t.paperplane-cookie-notice-container {\r\n\t\tposition: relative;\r\n\t\twidth: calc(100% - 20px);\r\n\t\tmax-width: 768px;\r\n\t\tmargin: 0 auto;\r\n\t\tpadding: 10px;\r\n\t\ttext-align: center;\r\n\t\t.paperplane-message-cookie-accepted, .paperplane-message-cookie-refused {\r\n\t\t\tdisplay: none;\r\n\t\t}\r\n\t}\r\n\ta {\r\n\t\tdisplay: inline-block;\r\n\t\tmargin: 5px;\r\n\t\tpadding: 3px 6px;\r\n\t\tbackground-color: $color-7;\r\n\t\tcolor: $color-1 !important;\r\n\t\ttext-transform: uppercase;\r\n\t}\r\n}\r\n\r\n.paperplane-gdpr-content-message {\r\n\tposition: relative;\r\n\tpadding: 10px;\r\n\tmargin: 20px 0;\r\n\tbackground-color: $color-1;\r\n\tcolor: $color-7;\r\n\tp {\r\n\t\tmargin-bottom: 0;\r\n\t\t\/\/text-transform: uppercase;\r\n\t}\r\n}",
+            "new_lines": "br",
+            "esc_html": 1
+        },
+        {
+            "key": "field_5cb9e12e7cef2",
+            "label": "Elenco cookie da mostrare nella pagina dedicata",
+            "name": "",
+            "type": "accordion",
+            "instructions": "Utilizzare lo shortcode [coookies-list] nella pagina dove si desiderano elencare i cookie utilizzati.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5cb9e1427cef3",
+            "label": "Gestisci cookies",
+            "name": "cookies_list",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Aggiungi cookie",
+            "sub_fields": [
+                {
+                    "key": "field_5cb9e14f7cef4",
+                    "label": "Nome del cookie",
+                    "name": "nome_cookie",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5cb9e57c78dc4",
+                    "label": "Quanto tempo persiste sul browser dell'utente?",
+                    "name": "quanto_tempo_persiste",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5cb9e5a078dc5",
+                    "label": "Di quali dati tiene traccia?",
+                    "name": "quali_dati_tiene_traccia",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5cb9e5c478dc6",
+                    "label": "Per quale scopo (funzionalità, prestazioni, statistiche, marketing, ecc.)?",
+                    "name": "per_quale_scopo",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5cb9e5da78dc7",
+                    "label": "Dove vengono inviati i dati e con chi sono condivisi?",
+                    "name": "dove_vengono_inviati_dati",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5cb9e60a78dc8",
+                    "label": "Come rifiutare i cookie e come modificare successivamente lo stato dei cookie",
+                    "name": "come_rifiutare_i_cookie",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "plugin-gestione-cookie-gdpr-any-lang"
+            }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "plugin-gestione-cookie-gdpr-any-lang"
+            }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "plugin-gestione-cookie-gdpr-any-lang"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1557500752
+}

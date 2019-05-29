@@ -1,4 +1,5 @@
 <?php
+
 add_filter( 'the_content', 'paperplane_iframe_gdpr', 99, 4 );
 function paperplane_iframe_gdpr( $html ) {
 	return preg_replace('~<iframe[^>]*\K(?=src)~i','gdpr-', $html);
@@ -20,6 +21,7 @@ function paperplane_handle_cookies() {
 		$forzare_il_reload = get_field( 'forzare_il_reload', pll_current_language('slug') );
 		$forzare_accettazione_scroll = get_field( 'forzare_accettazione_scroll', pll_current_language('slug') );
 		$pixel_scroll = get_field( 'pixel_scroll', pll_current_language('slug') );
+		$click_to_accept = get_field( 'click_to_accept', pll_current_language('slug') );
 	}
 	else {
 		$cookie_version = get_field( 'cookie_version', 'any-lang' );
@@ -32,6 +34,7 @@ function paperplane_handle_cookies() {
 		$forzare_il_reload = get_field( 'forzare_il_reload', 'any-lang' );
 		$forzare_accettazione_scroll = get_field( 'forzare_accettazione_scroll', 'any-lang' );
 		$pixel_scroll = get_field( 'pixel_scroll', 'any-lang' );
+		$click_to_accept = get_field( 'click_to_accept', 'any-lang' );
 	}
 	//converto ore in giorni
 	$days_expry = ($cookie_gdpr_expry / 24);
@@ -64,20 +67,33 @@ function paperplane_handle_cookies() {
 			});
 			<?php if ( $forzare_accettazione_scroll === 'yes' ) : ?>
 			function acceptOnScroll() {
-		 fromTop = $(document).scrollTop();
-			 if ( fromTop > <?php echo $pixel_scroll; ?> ) {
+				fromTop = $(document).scrollTop();
+				if ( fromTop > <?php echo $pixel_scroll; ?> ) {
 					$('#paperplane-cookie-notice').fadeOut(200);
 					Cookies.set('paperplane-gdpr<?php echo $cookie_version; ?>', 'yes', { expires: <?php echo $days_expry; ?> });
 					<?php if ( $forzare_il_reload === 'yes' ) : ?>
 					location.reload();
 					<?php endif; ?>
-			 }
-		 }
+				}
+			}
 			$(document).scroll(function() {
-			 acceptOnScroll();
-		 });
+				acceptOnScroll();
+			});
 			<?php endif; ?>
-
+			<?php if ( $click_to_accept === 'yes' ) : ?>
+				var first_click_to_accept;
+				if ( first_click_to_accept != 1 ) {
+					$(document).on('click','body *',function(){
+						//alert(first_click_to_accept);
+						$('#paperplane-cookie-notice').fadeOut(200);
+						first_click_to_accept = 1;
+						 Cookies.set('paperplane-gdpr<?php echo $cookie_version; ?>', 'yes', { expires: <?php echo $days_expry; ?> });
+						 <?php if ( $forzare_il_reload === 'yes' ) : ?>
+						 location.reload();
+						 <?php endif; ?>
+					});
+				}
+			<?php endif; ?>
 		}
 		if ( myCookie<?php echo $cookie_version; ?> === 'yes' ) {
 			$('head').append(gdpr_tracking_codes_head);
@@ -104,6 +120,7 @@ function paperplane_handle_cookies() {
 			<?php endif; ?>
 
 		});
+
 		$('.paperplane-gdpr-deny').click(function( event ) {
 			event.preventDefault();
 			$('#paperplane-cookie-notice').fadeOut(200);
@@ -139,6 +156,7 @@ function cookies_banner() {
 
 	// versione del tema
 	if ( function_exists( 'PLL' ) ) {
+		$use_own_css = get_field( 'use_own_css', pll_current_language('slug') );
 		$mostra_banner_cookie = get_field( 'mostra_banner_cookie', pll_current_language('slug') );
 		$banner_message = get_field( 'banner_message', pll_current_language('slug') );
 		$banner_accept_text = get_field( 'banner_accept_text', pll_current_language('slug') );
@@ -198,3 +216,67 @@ function show_again_banner() {
 		echo '<a href="#" class="show-paperplane-gdpr">'.$show_options_again.'</a>';
 	}
 }
+
+
+
+function paperplanecookies_showagain( $atts ){
+	ob_start();
+	if ( function_exists( 'PLL' ) ) {
+		$mostra_banner_cookie = get_field( 'mostra_banner_cookie', pll_current_language('slug') );
+		$show_options_again = get_field( 'show_options_again', pll_current_language('slug') );
+	}
+	else {
+		$mostra_banner_cookie = get_field( 'mostra_banner_cookie', 'any-lang' );
+		$show_options_again = get_field( 'show_options_again', 'any-lang' );
+	}
+	if ( $mostra_banner_cookie == 1 ) {
+		echo '<a href="#" class="show-paperplane-gdpr">'.$show_options_again.'</a>';
+	}
+	return ob_get_clean();
+}
+add_shortcode( 'coookies-showagain', 'paperplanecookies_showagain' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function paperplanecookies_list( $atts ){
+	ob_start();
+	if ( function_exists( 'PLL' ) ) {
+		$cookies_list = get_field( 'cookies_list', pll_current_language('slug') );
+	}
+	else {
+		if ( have_rows( 'cookies_list', 'any-lang' ) ) {
+			while ( have_rows( 'cookies_list', 'any-lang' ) ) : the_row();
+				echo '<div class="cookies-list-block">';
+				echo '<strong>';
+				the_sub_field( 'nome_cookie' );
+				echo '</strong>';
+				echo '<br />';
+				the_sub_field( 'quanto_tempo_persiste' );
+				echo '<br />';
+				the_sub_field( 'quali_dati_tiene_traccia' );
+				echo '<br />';
+				the_sub_field( 'per_quale_scopo' );
+				echo '<br />';
+				the_sub_field( 'dove_vengono_inviati_dati' );
+				echo '<br />';
+				the_sub_field( 'come_rifiutare_i_cookie' );
+				echo '</div>';
+			endwhile;
+		}
+	}
+
+	return ob_get_clean();
+}
+add_shortcode( 'coookies-list', 'paperplanecookies_list' );
