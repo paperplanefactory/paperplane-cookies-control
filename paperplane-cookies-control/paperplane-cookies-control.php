@@ -3,7 +3,7 @@
 Plugin Name: Paperplane Cookies Control
 Plugin URI: https://www.paperplanefactory.com
 description: A plugin to handle cookies and cookies notice banner, GDPR compliant. You need to activate <strong><a href="https://www.advancedcustomfields.com/pro/">ACF PRO</a></strong> to make Paperplane Cookie Control.
-Version: 1.1.0
+Version: 1.1.4
 Author: Paperplane
 Author URI: https://www.paperplanefactory.com
 Copyright: Paperplane
@@ -56,10 +56,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 					 wp_enqueue_script( 'js-cookie' );
 		     }
        }
+			 $load_css = get_field('use_own_css', 'option');
 			 function paperplanecookies_load_styles() {
 				 wp_enqueue_style( 'paperplanecookies-css', plugins_url( '/css/paperplanecookies.min.css', __FILE__ ) );
 			 }
-			 add_action( 'wp_enqueue_scripts', 'paperplanecookies_load_styles' );
+			 if ( $load_css == 1 ) {
+				 add_action( 'wp_enqueue_scripts', 'paperplanecookies_load_styles' );
+			 }
+
 
        // Registro il menu gestione cookies
        function paperplanecookies_register_menu() {
@@ -69,33 +73,41 @@ if ( ! defined( 'ABSPATH' ) ) {
              'hide_empty' => 0,
              'fields' => 'slug'
            );
-           $languages = pll_languages_list($args);
+           $languages = pll_languages_list($langs_parameters);
          }
          else {
            $languages = array('any-lang');
          }
+				 $parent = acf_add_options_page( array (
+					'page_title' => 'Plugin gestione cookie GDPR',
+					'menu_title' => 'GDPR cookie options',
+					'menu_slug'  => "plugin-gestione-cookie-gdpr",
+					'capability'	=> 'edit_posts',
+					'icon_url' => 'dashicons-lock'
+				) );
+				acf_add_options_sub_page( array (
+					'page_title' => 'Opzioni di funzionamento',
+					'menu_title' => 'Opzioni di funzionamento',
+					'parent_slug' 	=> $parent['menu_slug'],
+				) );
+
+
 				 if ( $languages === 'any-lang' ) {
-					 acf_add_options_page( array (
-						 'page_title' => 'Plugin gestione cookie GDPR (' . strtoupper( $lang ) . ')',
-						 'menu_title' => __('GDPR cookie options (' . strtoupper( $lang ) . ')', 'text-domain'),
-						 'menu_slug'  => "plugin-gestione-cookie-gdpr-${lang}",
-						 'post_id'    => $lang,
+					 $setlang_nolang = $languages[0];
+					 acf_add_options_sub_page( array (
+						 'page_title' => 'Testi',
+						 'menu_title' => 'Testi',
+						 'menu_slug'  => "plugin-gestione-cookie-gdpr-testi-${$setlang_nolang}",
+						 'post_id'    => $setlang_nolang,
 						 'parent_slug' 	=> $parent['menu_slug'],
-						 'icon_url' => 'dashicons-lock'
-					 ) );
+	 				) );
 				 }
 				 else {
-					 $parent = acf_add_options_page(array(
-							'page_title' 	=> 'GDPR cookie options',
-							'menu_title'	=> 'GDPR cookie options',
-							'capability'	=> 'edit_posts',
-							'icon_url' => 'dashicons-lock'
-						));
 						foreach ( $languages as $lang ) {
 							acf_add_options_sub_page( array (
-								'page_title' => 'Plugin gestione cookie GDPR (' . strtoupper( $lang ) . ')',
-								'menu_title' => __('GDPR cookie options (' . strtoupper( $lang ) . ')', 'text-domain'),
-								'menu_slug'  => "plugin-gestione-cookie-gdpr-${lang}",
+								'page_title' => 'Testi (' . strtoupper( $lang ) . ')',
+								'menu_title' => __('Testi (' . strtoupper( $lang ) . ')', 'text-domain'),
+								'menu_slug'  => "plugin-gestione-cookie-gdpr-testi-${lang}",
 								'post_id'    => $lang,
 								'parent_slug' 	=> $parent['menu_slug'],
 							) );
@@ -112,19 +124,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				 }
 				 </style>';
 			 }
-			 // Salvo ACF JSON
-	     add_filter('acf/settings/save_json', 'paperplanecookies_json_save_point');
-	     function paperplanecookies_json_save_point( $path ) {
-	       $path = plugin_dir_path( __FILE__ ) . 'acf-json-cookies';
-	       return $path;
-	     }
+			 // Carico ACF JSON
+				add_filter('acf/settings/load_json', function() {
+					$paths[] = dirname(__FILE__) . '/acf-json-cookies';
+					return $paths;
+				});
 
-	     // Carico ACF JSON
-	     add_filter('acf/settings/load_json', 'paperplanecookies_json_load_point');
-	     function paperplanecookies_json_load_point( $paths ) {
-	       $paths[] = plugin_dir_path( __FILE__ ) . 'acf-json-cookies';
-	       return $paths;
-	     }
        // Genero i campi necessari alle impostazioni
        require_once(plugin_dir_path( __FILE__ ) . '/inc/generate_fields.php');
 			 require_once(plugin_dir_path( __FILE__ ) . '/inc/paperplane-cookies-code.php');

@@ -1,0 +1,369 @@
+{
+    "key": "group_5d00c1b459584",
+    "title": "Gestione Funzionamento Cookie GDPR",
+    "fields": [
+        {
+            "key": "field_5d00c1b45c239",
+            "label": "Gestione comportamento",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d00c1b45c274",
+            "label": "Mostrare il banner dei cookie?",
+            "name": "mostra_banner_cookie",
+            "type": "true_false",
+            "instructions": "Scegli se mostrare o meno il banner.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sì",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_5d00c1b45c2ac",
+            "label": "Cookie version",
+            "name": "cookie_version",
+            "type": "number",
+            "instructions": "Cambiare per forzare la generazione di un nuovo cookie. Utile nel caso in cui siano stati modificati i codici di tracciamento.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": 1,
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5d00c1b45c2ff",
+            "label": "Scadenza cookie GDPR",
+            "name": "scadenza_cookie_gdpr",
+            "type": "number",
+            "instructions": "Scegliere dopo quanto il banner dei cookie deve essere mostrato nuovamente. Indicare il valore in ore.<br \/>\r\nesempio er un mese: 24x31 = 744",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": 744,
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5d00c1b45c357",
+            "label": "Forzare l'accettazione dei cookie cliccando in qualsiasi punto della pagina?",
+            "name": "click_to_accept",
+            "type": "select",
+            "instructions": "Ogni interazione dell'utente comporterà l'accettazione dei cookie.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yes": "Sì",
+                "no": "No"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d00c1b45c3af",
+            "label": "Forzare il reload della pagina all'accettazione o rifiuto?",
+            "name": "forzare_il_reload",
+            "type": "select",
+            "instructions": "Forzando il reload verranno tracciati i dati dal momento della scelta del consenso. In caso contrario il tracciamento inizierà dalla visita successiva.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yes": "Sì",
+                "no": "No"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d00c1b45c407",
+            "label": "Forzare l'accettazione allo scroll?",
+            "name": "forzare_accettazione_scroll",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yes": "Sì",
+                "no": "No"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d00c1b45c45e",
+            "label": "Dopo quanti pixel di scroll attivare l'accettazione?",
+            "name": "pixel_scroll",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d00c1b45c407",
+                        "operator": "==",
+                        "value": "yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 100,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5d00c1b45c4ba",
+            "label": "Gestione codici di tracciamento e contenuti da bloccare",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d00c1b45c50e",
+            "label": "Informazioni sugli script caricati in pagina",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Nel caso in cui vengano utilizzati script in pagina es. AdSense sostituire l'attributo src con gdpr-src<br \/>\r\nDa:<br \/>\r\nsrc=\"\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js\"<br \/>\r\nA:<br \/>\r\ngdpr-src=\"\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js\"<br \/>\r\n<strong>Questa modifica non è da applicare alle due voci sotto \"Non GDPR Tracking codes\" e GDPR Tracking codes.<\/strong>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5d00c1b45c566",
+            "label": "Non GDPR Tracking codes (head)",
+            "name": "non_gdpr_tracking_codes_head",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che non richiedono accettazione.<br \/>\r\nPer rendere Analytics GDPR compliant verificare che il codice abbia questa riga:<br \/>\r\ngtag('config', 'UA-XXXXXXX-X', { 'anonymize_ip': true });<br \/>\r\nE verificare che nelle \"Impostazioni di condivisione dati\" di Analytics non sia marcato nessun checkbox.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione HEAD del documento.<br \/>\r\nPer un codice più compatto fare riferimento a https:\/\/minimalanalytics.com\/",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "<!-- Non GDPR Tracking codes (head) -->",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5d00c1b45c5be",
+            "label": "Non GDPR Tracking codes (body)",
+            "name": "non_gdpr_tracking_codes_body",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che non richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione BODY del documento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "<!-- Non GDPR Tracking codes (body) -->",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5d00c1b45c616",
+            "label": "GDPR Tracking codes (head)",
+            "name": "gdpr_tracking_codes_head",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione HEAD del documento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "<!-- GDPR Tracking codes (head) -->",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5d00c1b45c66e",
+            "label": "GDPR Tracking codes (body)",
+            "name": "gdpr_tracking_codes_body",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione BODY del documento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "<!-- GDPR Tracking codes (body) -->",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5d0123b0f3a15",
+            "label": "Aspetto e CSS",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d0123c8f3a16",
+            "label": "Usare i CSS preimpostati?",
+            "name": "use_own_css",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d012401f3a17",
+            "label": "Gestione aspetto banner",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Se vuoi personalizzare i CSS puoi utilizzare questi selettorei direttamente nel foglio di stile del tema:\r\n\r\n#paperplane-cookie-notice {\r\n\tposition: fixed;\r\n\tz-index: 9999;\r\n\tdisplay: block;\r\n\t\/\/visibility: hidden;\r\n\tdisplay: none;\r\n\twidth: calc(100% - 26px);\r\n\tbottom: 10px;\r\n\tleft: 10px;\r\n\tfont-family: $font-main !important;\r\n  font-weight:$font-weight-1 !important;\r\n  font-size: $cta1-size-smartphone !important;\r\n  line-height: $cta1-lineheight-smartphone !important;\r\n\tborder: $color-4 solid 3px !important;\r\n\tbackground-color: $color-1 !important;\r\n\tcolor: $color-6 !important;\r\n\t.paperplane-cookie-notice-container {\r\n\t\tposition: relative;\r\n\t\twidth: calc(100% - 20px);\r\n\t\tmax-width: 768px;\r\n\t\tmargin: 0 auto;\r\n\t\tpadding: 10px;\r\n\t\ttext-align: center;\r\n\t\t.paperplane-message-cookie-accepted, .paperplane-message-cookie-refused {\r\n\t\t\tdisplay: none;\r\n\t\t}\r\n\t}\r\n\ta {\r\n\t\tdisplay: inline-block;\r\n\t\tmargin: 5px;\r\n\t\tpadding: 3px 6px;\r\n\t\tbackground-color: $color-7;\r\n\t\tcolor: $color-1 !important;\r\n\t\ttext-transform: uppercase;\r\n\t}\r\n}\r\n\r\n.paperplane-gdpr-content-message {\r\n\tposition: relative;\r\n\tpadding: 10px;\r\n\tmargin: 20px 0;\r\n\tbackground-color: $color-1;\r\n\tcolor: $color-7;\r\n\tp {\r\n\t\tmargin-bottom: 0;\r\n\t\t\/\/text-transform: uppercase;\r\n\t}\r\n}",
+            "new_lines": "br",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-opzioni-di-funzionamento"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1561023197
+}
