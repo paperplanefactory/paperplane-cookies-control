@@ -1,20 +1,14 @@
 <?php
 /*
 Plugin Name: Paperplane Cookies Control
-Plugin URI: https://www.paperplanefactory.com
+Plugin URI: https://github.com/paperplanefactory/paperplane-cookies-control
 description: A plugin to handle cookies and cookies notice banner, GDPR compliant. You need to activate <strong><a href="https://www.advancedcustomfields.com/pro/">ACF PRO</a></strong> to make Paperplane Cookie Control.
 Version: 1.1.4
 Author: Paperplane
 Author URI: https://www.paperplanefactory.com
 Copyright: Paperplane
+GitHub Plugin URI: https://github.com/paperplanefactory/paperplane-cookies-control
 */
-
-require plugin_dir_path( __FILE__ ) . '/plugin-update-checker/plugin-update-checker.php';
-$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://plugins.paperplanefactory.com/cookies/paperplane-cookie-check.json',
-	__FILE__, //Full path to the main plugin file or functions.php.
-	'paperplane-cookie'
-);
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
