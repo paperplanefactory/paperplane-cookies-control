@@ -114,8 +114,7 @@ function paperplane_handle_cookies() {
 			});
 		}
 
-
-		$('.paperplane-gdpr-accept').click(function( event ) {
+		$(document).on('click', '.paperplane-gdpr-accept:not(.initialized)', function (e) {
 			event.preventDefault();
 			$('#paperplane-cookie-notice').fadeOut(200);
 			Cookies.set('paperplane-gdpr<?php echo $cookie_version; ?>', 'yes', { expires: <?php echo $days_expry; ?> });
@@ -125,7 +124,7 @@ function paperplane_handle_cookies() {
 
 		});
 
-		$('.paperplane-gdpr-deny').click(function( event ) {
+		$(document).on('click', '.paperplane-gdpr-deny:not(.initialized)', function (e) {
 			event.preventDefault();
 			$('#paperplane-cookie-notice').fadeOut(200);
 			Cookies.set('paperplane-gdpr<?php echo $cookie_version; ?>', 'no', { expires: <?php echo $days_expry; ?> });
@@ -133,7 +132,8 @@ function paperplane_handle_cookies() {
 			location.reload();
 			<?php endif; ?>
 		});
-		$('.show-paperplane-gdpr').click(function( event ) {
+
+		$(document).on('click', '.show-paperplane-gdpr:not(.initialized)', function (e) {
 			event.preventDefault();
 			Cookies.remove('paperplane-gdpr<?php echo $cookie_version; ?>');
 			if ( myCookie<?php echo $cookie_version; ?> === 'yes' ) {
@@ -144,6 +144,7 @@ function paperplane_handle_cookies() {
 			}
 			$('#paperplane-cookie-notice').fadeIn(200);
 		});
+
 
 
 
