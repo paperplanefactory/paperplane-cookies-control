@@ -61,10 +61,10 @@
         },
         {
             "key": "field_5d00c1b45c2ff",
-            "label": "Scadenza cookie GDPR",
+            "label": "Scadenza avviso",
             "name": "scadenza_cookie_gdpr",
             "type": "number",
-            "instructions": "Scegliere dopo quanto il banner dei cookie deve essere mostrato nuovamente. Indicare il valore in ore.<br \/>\r\nesempio er un mese: 24x31 = 744",
+            "instructions": "Scegliere dopo quanto il banner dei cookie deve essere mostrato nuovamente. Indicare il valore in giorni.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -73,7 +73,7 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": 744,
+            "placeholder": 31,
             "prepend": "",
             "append": "",
             "min": "",
@@ -220,7 +220,7 @@
         },
         {
             "key": "field_5d00c1b45c566",
-            "label": "Non GDPR Tracking codes (head)",
+            "label": "Non GDPR Tracking codes HEAD",
             "name": "non_gdpr_tracking_codes_head",
             "type": "textarea",
             "instructions": "Inserire qui i codici di tracciamento che non richiedono accettazione.<br \/>\r\nPer rendere Analytics GDPR compliant verificare che il codice abbia questa riga:<br \/>\r\ngtag('config', 'UA-XXXXXXX-X', { 'anonymize_ip': true });<br \/>\r\nE verificare che nelle \"Impostazioni di condivisione dati\" di Analytics non sia marcato nessun checkbox.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione HEAD del documento.<br \/>\r\nPer un codice più compatto fare riferimento a https:\/\/minimalanalytics.com\/",
@@ -238,27 +238,8 @@
             "new_lines": ""
         },
         {
-            "key": "field_5d00c1b45c5be",
-            "label": "Non GDPR Tracking codes (body)",
-            "name": "non_gdpr_tracking_codes_body",
-            "type": "textarea",
-            "instructions": "Inserire qui i codici di tracciamento che non richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione BODY del documento.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "<!-- Non GDPR Tracking codes (body) -->",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
-        },
-        {
             "key": "field_5d00c1b45c616",
-            "label": "GDPR Tracking codes (head)",
+            "label": "GDPR Tracking codes HEAD",
             "name": "gdpr_tracking_codes_head",
             "type": "textarea",
             "instructions": "Inserire qui i codici di tracciamento che richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione HEAD del documento.",
@@ -276,8 +257,27 @@
             "new_lines": ""
         },
         {
+            "key": "field_5d00c1b45c5be",
+            "label": "Non GDPR Tracking codes BODY",
+            "name": "non_gdpr_tracking_codes_body",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che non richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione BODY del documento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "<!-- Non GDPR Tracking codes (body) -->",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_5d00c1b45c66e",
-            "label": "GDPR Tracking codes (body)",
+            "label": "GDPR Tracking codes BODY",
             "name": "gdpr_tracking_codes_body",
             "type": "textarea",
             "instructions": "Inserire qui i codici di tracciamento che richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla sezione BODY del documento.",
@@ -290,6 +290,44 @@
             },
             "default_value": "",
             "placeholder": "<!-- GDPR Tracking codes (body) -->",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5d41889de44f5",
+            "label": "GDPR Tracking codes \/BODY",
+            "name": "gdpr_tracking_codes_body_closing",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla fine della sezione BODY del documento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "<!-- GDPR Tracking codes (body) -->",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5d418894e44f4",
+            "label": "Non GDPR Tracking codes \/BODY",
+            "name": "non_gdpr_tracking_codes_body_closing",
+            "type": "textarea",
+            "instructions": "Inserire qui i codici di tracciamento che non richiedono accettazione.<br \/>\r\nQuesti codici verranno aggiunti dinamicamente alla fine della sezione BODY del documento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "<!-- Non GDPR Tracking codes (body) -->",
             "maxlength": "",
             "rows": "",
             "new_lines": ""
@@ -343,9 +381,26 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Se vuoi personalizzare i CSS puoi utilizzare questi selettorei direttamente nel foglio di stile del tema:\r\n\r\n#paperplane-cookie-notice {\r\n\tposition: fixed;\r\n\tz-index: 9999;\r\n\tdisplay: block;\r\n\t\/\/visibility: hidden;\r\n\tdisplay: none;\r\n\twidth: calc(100% - 26px);\r\n\tbottom: 10px;\r\n\tleft: 10px;\r\n\tfont-family: $font-main !important;\r\n  font-weight:$font-weight-1 !important;\r\n  font-size: $cta1-size-smartphone !important;\r\n  line-height: $cta1-lineheight-smartphone !important;\r\n\tborder: $color-4 solid 3px !important;\r\n\tbackground-color: $color-1 !important;\r\n\tcolor: $color-6 !important;\r\n\t.paperplane-cookie-notice-container {\r\n\t\tposition: relative;\r\n\t\twidth: calc(100% - 20px);\r\n\t\tmax-width: 768px;\r\n\t\tmargin: 0 auto;\r\n\t\tpadding: 10px;\r\n\t\ttext-align: center;\r\n\t\t.paperplane-message-cookie-accepted, .paperplane-message-cookie-refused {\r\n\t\t\tdisplay: none;\r\n\t\t}\r\n\t}\r\n\ta {\r\n\t\tdisplay: inline-block;\r\n\t\tmargin: 5px;\r\n\t\tpadding: 3px 6px;\r\n\t\tbackground-color: $color-7;\r\n\t\tcolor: $color-1 !important;\r\n\t\ttext-transform: uppercase;\r\n\t}\r\n}\r\n\r\n.paperplane-gdpr-content-message {\r\n\tposition: relative;\r\n\tpadding: 10px;\r\n\tmargin: 20px 0;\r\n\tbackground-color: $color-1;\r\n\tcolor: $color-7;\r\n\tp {\r\n\t\tmargin-bottom: 0;\r\n\t\t\/\/text-transform: uppercase;\r\n\t}\r\n}",
+            "message": "Se vuoi personalizzare i CSS puoi partire dal file paperplane-cookies-control\/css\/paperplanecookies-expanded.css",
             "new_lines": "br",
             "esc_html": 0
+        },
+        {
+            "key": "field_5e3d66d5b03f4",
+            "label": "Istruzioni per inserire il link per mostrare ancora il banner e modificare le impostazioni",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Inserire questa stringa nel tema (ad esempio nel footer):\r\n<?php if ( function_exists( 'show_again_banner' ) ) { show_again_banner(); } ?> \r\nOppure utilizzare questo shortcode che everrà visualizzato come un link testuale: [coookies-showagain]",
+            "new_lines": "wpautop",
+            "esc_html": 1
         }
     ],
     "location": [
@@ -365,5 +420,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1561023197
+    "modified": 1581335663
 }
