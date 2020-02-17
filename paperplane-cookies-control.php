@@ -3,7 +3,7 @@
  * Plugin Name: Paperplane Cookies Control
  * Plugin URI: https://github.com/paperplanefactory/paperplane-cookies-control
  * Description: A plugin to handle cookies and cookies notice banner, GDPR compliant. You need to activate <strong><a href="https://www.advancedcustomfields.com/pro/">ACF PRO</a></strong> to make Paperplane Cookie Control.
- * Version: 1.1.6
+ * Version: 1.1.7
  * Author: Paperplane
  * License: GNU General Public License v2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -27,16 +27,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  function paperplaneCookies_init() {
 	 if( class_exists( 'ACF' ) ) {
 		 require_once(plugin_dir_path( __FILE__ ) . '/inc/paperplane-cookies-code-localstorage.php');
-		 //require_once(plugin_dir_path( __FILE__ ) . '/inc/generate_fields.php');
+		 require_once(plugin_dir_path( __FILE__ ) . '/inc/generate_fields.php');
 		 // Salvo ACF JSON
-		 add_filter('acf/settings/save_json', 'my_acf_json_save_point', 20);
+		 // add_filter('acf/settings/save_json', 'my_acf_json_save_point', 20);
 		 function my_acf_json_save_point( $path ) {
 			 $path = plugin_dir_path( __FILE__ ).'/acf-json';
 			 return $path;
 		 }
 
 		 // Carico ACF JSON
-		 add_filter('acf/settings/load_json', 'my_acf_json_load_point', 20);
+		 // add_filter('acf/settings/load_json', 'my_acf_json_load_point', 20);
 		 function my_acf_json_load_point( $paths ) {
 			 unset($paths[0]);
 			 $paths[] = plugin_dir_path( __FILE__ ).'/acf-json';

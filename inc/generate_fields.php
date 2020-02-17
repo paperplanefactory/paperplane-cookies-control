@@ -88,11 +88,10 @@ if( function_exists('acf_add_local_field_group') ):
 		),
 		array(
 			'key' => 'field_5d00c1b45c2ff',
-			'label' => 'Scadenza cookie GDPR',
+			'label' => 'Scadenza avviso',
 			'name' => 'scadenza_cookie_gdpr',
 			'type' => 'number',
-			'instructions' => 'Scegliere dopo quanto il banner dei cookie deve essere mostrato nuovamente. Indicare il valore in ore.<br />
-esempio er un mese: 24x31 = 744',
+			'instructions' => 'Scegliere dopo quanto il banner dei cookie deve essere mostrato nuovamente. Indicare il valore in giorni.',
 			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -101,7 +100,7 @@ esempio er un mese: 24x31 = 744',
 				'id' => '',
 			),
 			'default_value' => '',
-			'placeholder' => 744,
+			'placeholder' => 31,
 			'prepend' => '',
 			'append' => '',
 			'min' => '',
@@ -427,58 +426,28 @@ Questi codici verranno aggiunti dinamicamente alla fine della sezione BODY del d
 				'class' => '',
 				'id' => '',
 			),
-			'message' => 'Se vuoi personalizzare i CSS puoi utilizzare questi selettorei direttamente nel foglio di stile del tema:
-
-#paperplane-cookie-notice {
-	position: fixed;
-	z-index: 9999;
-	display: block;
-	//visibility: hidden;
-	display: none;
-	width: calc(100% - 26px);
-	bottom: 10px;
-	left: 10px;
-	font-family: $font-main !important;
-	font-weight:$font-weight-1 !important;
-	font-size: $cta1-size-smartphone !important;
-	line-height: $cta1-lineheight-smartphone !important;
-	border: $color-4 solid 3px !important;
-	background-color: $color-1 !important;
-	color: $color-6 !important;
-	.paperplane-cookie-notice-container {
-		position: relative;
-		width: calc(100% - 20px);
-		max-width: 768px;
-		margin: 0 auto;
-		padding: 10px;
-		text-align: center;
-		.paperplane-message-cookie-accepted, .paperplane-message-cookie-refused {
-			display: none;
-		}
-	}
-	a {
-		display: inline-block;
-		margin: 5px;
-		padding: 3px 6px;
-		background-color: $color-7;
-		color: $color-1 !important;
-		text-transform: uppercase;
-	}
-}
-
-.paperplane-gdpr-content-message {
-	position: relative;
-	padding: 10px;
-	margin: 20px 0;
-	background-color: $color-1;
-	color: $color-7;
-	p {
-		margin-bottom: 0;
-		//text-transform: uppercase;
-	}
-}',
+			'message' => 'Se vuoi personalizzare i CSS puoi partire dal file paperplane-cookies-control/css/paperplanecookies-expanded.css',
 			'new_lines' => 'br',
 			'esc_html' => 0,
+		),
+		array(
+			'key' => 'field_5e3d66d5b03f4',
+			'label' => 'Istruzioni per inserire il link per mostrare ancora il banner e modificare le impostazioni',
+			'name' => '',
+			'type' => 'message',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => 'Inserire questa stringa nel tema (ad esempio nel footer):
+<?php if ( function_exists( \'show_again_banner\' ) ) { show_again_banner(); } ?>
+Oppure utilizzare questo shortcode che everrà visualizzato come un link testuale: [coookies-showagain]',
+			'new_lines' => 'wpautop',
+			'esc_html' => 1,
 		),
 	),
 	'location' => array(
@@ -704,25 +673,6 @@ acf_add_local_field_group(array(
 			'prepend' => '',
 			'append' => '',
 			'maxlength' => '',
-		),
-		array(
-			'key' => 'field_5d00c29da8166',
-			'label' => 'Istruzioni per inserire il link per mostrare ancora il banner e modificare le impostazioni',
-			'name' => '',
-			'type' => 'message',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'message' => 'Inserire questa stringa nel tema (ad esempio nel footer):<br />
-<?php if ( function_exists( \'show_again_banner\' ) ) { show_again_banner(); } ?> <br />
-Oppure utilizzare questo shortcode: [coookies-showagain]',
-			'new_lines' => 'wpautop',
-			'esc_html' => 1,
 		),
 		array(
 			'key' => 'field_5d00c29da81be',
