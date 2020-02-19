@@ -189,7 +189,7 @@ function paperplane_handle_cookies() {
 		jQuery(document).on('click', '.show-paperplane-gdpr:not(.initialized)', function (e) {
 			//show_banner();
 			clear_local_storage();
-
+			location.reload();
 		});
 	});
 
