@@ -180,16 +180,16 @@ function paperplane_handle_cookies() {
 			event.preventDefault();
 			hide_banner();
 			localStorage.setItem('paperplane-gdpr', 'no');
-			console.log(localStorage.getItem('paperplane-gdpr'));
+			//console.log(localStorage.getItem('paperplane-gdpr'));
 			<?php if ( $forzare_il_reload === 'yes' ) : ?>
 			location.reload();
 			<?php endif; ?>
 		});
 
 		jQuery(document).on('click', '.show-paperplane-gdpr:not(.initialized)', function (e) {
-			//show_banner();
+			show_banner();
 			clear_local_storage();
-			location.reload();
+			//location.reload();
 		});
 	});
 
