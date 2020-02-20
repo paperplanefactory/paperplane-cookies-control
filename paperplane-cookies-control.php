@@ -3,7 +3,7 @@
  * Plugin Name: Paperplane Cookies Control
  * Plugin URI: https://github.com/paperplanefactory/paperplane-cookies-control
  * Description: A plugin to handle cookies and cookies notice banner, GDPR compliant. You need to activate <strong><a href="https://www.advancedcustomfields.com/pro/">ACF PRO</a></strong> to make Paperplane Cookie Control.
- * Version: 1.2.4
+ * Version: 1.2.5
  * Author: Paperplane
  * License: GNU General Public License v2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
