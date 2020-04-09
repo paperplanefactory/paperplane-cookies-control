@@ -280,19 +280,26 @@ function paperplanecookies_list( $atts ){
 		if ( have_rows( 'cookies_list', pll_current_language('slug') ) ) {
 			while ( have_rows( 'cookies_list', pll_current_language('slug') ) ) : the_row();
 				echo '<div class="cookies-list-block">';
-				echo '<strong>';
+				echo '<ul>';
+				echo '<li><strong>';
 				the_sub_field( 'nome_cookie' );
-				echo '</strong>';
-				echo '<br />';
+				echo '</strong></li>';
+				echo '<li>';
 				the_sub_field( 'quanto_tempo_persiste' );
-				echo '<br />';
+				echo '</li>';
+				echo '<li>';
 				the_sub_field( 'quali_dati_tiene_traccia' );
-				echo '<br />';
+				echo '</li>';
+				echo '<li>';
 				the_sub_field( 'per_quale_scopo' );
-				echo '<br />';
+				echo '</li>';
+				echo '<li>';
 				the_sub_field( 'dove_vengono_inviati_dati' );
-				echo '<br />';
+				echo '</li>';
+				echo '<ul>';
+				echo '<p>';
 				the_sub_field( 'come_rifiutare_i_cookie' );
+				echo '</p>';
 				echo '</div>';
 			endwhile;
 		}
@@ -301,21 +308,28 @@ function paperplanecookies_list( $atts ){
 	else {
 		if ( have_rows( 'cookies_list', 'any-lang' ) ) {
 			while ( have_rows( 'cookies_list', 'any-lang' ) ) : the_row();
-				echo '<div class="cookies-list-block">';
-				echo '<strong>';
-				the_sub_field( 'nome_cookie' );
-				echo '</strong>';
-				echo '<br />';
-				the_sub_field( 'quanto_tempo_persiste' );
-				echo '<br />';
-				the_sub_field( 'quali_dati_tiene_traccia' );
-				echo '<br />';
-				the_sub_field( 'per_quale_scopo' );
-				echo '<br />';
-				the_sub_field( 'dove_vengono_inviati_dati' );
-				echo '<br />';
-				the_sub_field( 'come_rifiutare_i_cookie' );
-				echo '</div>';
+			echo '<div class="cookies-list-block">';
+			echo '<ul>';
+			echo '<li><strong>';
+			the_sub_field( 'nome_cookie' );
+			echo '</strong></li>';
+			echo '<li>';
+			the_sub_field( 'quanto_tempo_persiste' );
+			echo '</li>';
+			echo '<li>';
+			the_sub_field( 'quali_dati_tiene_traccia' );
+			echo '</li>';
+			echo '<li>';
+			the_sub_field( 'per_quale_scopo' );
+			echo '</li>';
+			echo '<li>';
+			the_sub_field( 'dove_vengono_inviati_dati' );
+			echo '</li>';
+			echo '<ul>';
+			echo '<p>';
+			the_sub_field( 'come_rifiutare_i_cookie' );
+			echo '</p>';
+			echo '</div>';
 			endwhile;
 		}
 	}
