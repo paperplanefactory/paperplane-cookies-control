@@ -226,12 +226,16 @@ function cookies_banner() {
 				<div class="paperplane-message-cookie-refused">
 					<?php echo $promemoria_cookie_rifiutati; ?>
 				</div>
-				<?php echo $banner_message; ?>
-				<a href="#" class="paperplane-gdpr-accept" aria-label="<?php echo $banner_accept_text; ?>"><?php echo $banner_accept_text; ?></a>
-				<?php if ( $mostra_pulsante_rifiuto == 1 ) : ?>
-					<a href="#" class="paperplane-gdpr-deny" aria-label="<?php echo $banner_deny_text; ?>"><?php echo $banner_deny_text; ?></a>
-				<?php endif; ?>
-				<a href="<?php echo $url_cookie_policy; ?>" target="<?php echo $url_cookie_policy_target; ?>"><?php echo $more_info_text; ?></a>
+				<div class="paperplane-message-cookie-text">
+					<?php echo $banner_message; ?>
+				</div>
+				<div class="paperplane-message-cookie-buttons">
+					<a href="#" class="paperplane-gdpr-accept" aria-label="<?php echo $banner_accept_text; ?>"><?php echo $banner_accept_text; ?></a>
+					<?php if ( $mostra_pulsante_rifiuto == 1 ) : ?>
+						<a href="#" class="paperplane-gdpr-deny" aria-label="<?php echo $banner_deny_text; ?>"><?php echo $banner_deny_text; ?></a>
+					<?php endif; ?>
+					<a href="<?php echo $url_cookie_policy; ?>" target="<?php echo $url_cookie_policy_target; ?>"><?php echo $more_info_text; ?></a>
+				</div>
 			</div>
 		</div>
 	<?php endif; ?>
