@@ -127,6 +127,7 @@ function paperplane_handle_cookies() {
 
 		if ( localStorage.getItem('paperplane-gdpr') === null ) {
 			show_banner();
+			block_embed();
 		}
 
 
