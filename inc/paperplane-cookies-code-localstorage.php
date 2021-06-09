@@ -36,7 +36,12 @@ function paperplane_handle_cookies() {
 
 	$forzare_il_reload = get_field( 'forzare_il_reload', 'option' );
 	$forzare_accettazione_scroll = get_field( 'forzare_accettazione_scroll', 'option' );
-	$pixel_scroll = get_field( 'pixel_scroll', 'option' );
+	if ( get_field( 'pixel_scroll', 'option' ) ) {
+		$pixel_scroll = get_field( 'pixel_scroll', 'option' );
+	}
+	else {
+		$pixel_scroll = 200;
+	}
 	$click_to_accept = get_field( 'click_to_accept', 'option' );
 	$embedded_content_message = get_field( 'embedded_content_message', $paperplane_cookies_current_language );
 	//converto ore in giorni
