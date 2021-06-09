@@ -64,8 +64,8 @@ function paperplane_handle_cookies() {
 			localStorage.setItem('paperplane-gdpr-expry', expry_date	);
 		}
 
-		console.log(localStorage.getItem('paperplane-gdpr-expry'));
-		console.log(localStorage.getItem('paperplane-gdpr'));
+		//console.log(localStorage.getItem('paperplane-gdpr-expry'));
+		//console.log(localStorage.getItem('paperplane-gdpr'));
 		function clear_local_storage() {
 			//localStorage.clear();
 			localStorage.removeItem('paperplane-gdpr-expry');
